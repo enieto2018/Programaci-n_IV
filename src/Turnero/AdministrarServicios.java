@@ -18,10 +18,10 @@ public class AdministrarServicios{
 	public void AgregarServicio(String nombre) {
 		
 	Servicios newServicio= new Servicios();
-	Servicios.setNombre(nombre);
+	newServicio.setNombre(nombre);
+	Servicios.add(newServicio);
 	
-	
-	    }
+	}
 	
 
 }
