@@ -1,8 +1,9 @@
 package Turnero;
 
 public class Persona {
-	protected int identificacion;
-	protected String nombre;
+	
+	protected  int identificacion;
+	protected  String nombre;
 	
 	public Persona(int identificacion, String nombre) {
 		this.identificacion = identificacion;

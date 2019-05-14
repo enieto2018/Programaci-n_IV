@@ -1,14 +1,16 @@
 package Turnero;
 
-import java.util.List;
 
-public class Asesor {
+public class Asesor extends Persona{
 	
+    public Asesor(int identificacion, String nombre, boolean estado) {
+		super(identificacion, nombre);
+		this.estado = estado;
+	}
+
 	private boolean estado ;
-	List<Servicios> Servicios;
 	
-	
-
+		
 	public boolean isEstado() {
 		return estado;
 	}
@@ -16,15 +18,4 @@ public class Asesor {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-
-	public List<Servicios> getServicios() {
-		return Servicios;
-	}
-
-	public void setServicios(List<Servicios> servicios) {
-		Servicios = servicios;
-	}
-	
-	
-
 }

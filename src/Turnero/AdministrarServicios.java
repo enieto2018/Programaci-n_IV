@@ -1,5 +1,6 @@
 package Turnero;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdministrarServicios{
@@ -7,6 +8,10 @@ public class AdministrarServicios{
 	List<Servicios> Servicios;
 	
 
+	public AdministrarServicios() {
+		Servicios = new ArrayList<Servicios>();
+	}
+	
 	public List<Servicios> getServicios() {
 		return Servicios;
 	}
