@@ -20,7 +20,6 @@ public class AdministrarPrioridad {
 	}
 
 	public void AgregarPrioridad(String nombre) {
-		//Servicios newServicio= new Servicios();
 		Prioridad newPrioridad= new Prioridad();
 		newPrioridad.setNombre(nombre);
 		Prioridad.add(newPrioridad);

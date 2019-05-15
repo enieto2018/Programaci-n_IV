@@ -8,9 +8,11 @@ import org.junit.Test;
 
 import Turnero.AdministrarAsesor;
 import Turnero.AdministrarPrioridad;
+import Turnero.AdministrarPuntoAtencion;
 import Turnero.AdministrarServicios;
 import Turnero.Asesor;
 import Turnero.Prioridad;
+import Turnero.PuntoAtencion;
  
 
 
@@ -45,6 +47,15 @@ public class AdministrarTest {
 		 nuevoAsesor.AgregarAsesor("jj", 123,true);
 		 list=nuevoAsesor.getAsesor().get(0);
 		 assertEquals("jj",list.getNombre());
+	    }
+	 @Test
+	    public void test_PuntoAtencion()
+	    {
+		 AdministrarPuntoAtencion nuevoPunto= new AdministrarPuntoAtencion(null, false);
+		 PuntoAtencion list=new PuntoAtencion();
+		/* nuevoPunto.AgregarPuntoAtencion(asesor, true);
+		 list=nuevoPunto.getPuntoAtencion().
+		 assertEquals("jj",list.getNombre());*/
 	    }
 	
 }
