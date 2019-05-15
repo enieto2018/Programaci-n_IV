@@ -3,28 +3,37 @@ package Turnero;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdministrarAsesor extends Asesor{
+public class AdministrarAsesor{
 	
 
-	List<Asesor> Asesor;
+	List<Asesor> asesores = new ArrayList<Asesor>();
 
 	
-	public AdministrarAsesor(int identificacion, String nombre, boolean estado) {
-		super(identificacion, nombre, estado);
-		Asesor = new ArrayList<Asesor>();
-	}
+//	public AdministrarAsesor(int identificacion, String nombre, boolean estado) {
+//		super(identificacion, nombre, estado);
+//	}
 
-	public List<Asesor> getAsesor() {
-		return Asesor;
-	}
-
-	public void setAsesor(List<Asesor> asesor) {
-		Asesor = asesor;
-	}
+	
 	
 	public void AgregarAsesor(String nombre, int identificacion,boolean estado) {
 		Asesor newAsesor= new Asesor(identificacion, nombre, estado);
-		Asesor.add(newAsesor);
+		asesores.add(newAsesor);
+	}
+	
+	public List<Asesor> getAsesores() {
+		return asesores;
+	}
 
-}
+	public void setAsesores(List<Asesor> asesores) {
+		this.asesores = asesores;
+	}
+
+	public void agregarServicioAsesor(int identificacion, List<Servicios> servicios) {
+		for(Asesor asesor:asesores) {
+			if(identificacion==asesor.getIdentificacion()) {
+				
+			}
+				
+		}
+	}
 }

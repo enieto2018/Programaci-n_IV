@@ -39,15 +39,15 @@ public class AdministrarTest {
 		 list=nuevoPrioridad.getPrioridad().get(0);
 		 assertEquals("Embarazada", list.getNombre());
 	    }
-	 @Test
-	    public void test_Asesor()
-	    {
-		 AdministrarAsesor nuevoAsesor= new AdministrarAsesor(0, null, false);
-		 Asesor list=new Asesor(0, null, false);
-		 nuevoAsesor.AgregarAsesor("jj", 123,true);
-		 list=nuevoAsesor.getAsesor().get(0);
-		 assertEquals("jj",list.getNombre());
-	    }
+//	 @Test
+//	    public void test_Asesor()
+//	    {
+//		 AdministrarAsesor nuevoAsesor= new AdministrarAsesor(0, null, false);
+//		 Asesor list=new Asesor(0, null, false);
+//		 nuevoAsesor.AgregarAsesor("jj", 123,true);
+//		 list=nuevoAsesor.getAsesor().get(0);
+//		 assertEquals("jj",list.getNombre());
+//	    }
 	 @Test
 	    public void test_PuntoAtencion()
 	    {
