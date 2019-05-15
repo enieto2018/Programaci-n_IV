@@ -9,6 +9,7 @@ import org.junit.Test;
 import Turnero.AdministrarAsesor;
 import Turnero.AdministrarPrioridad;
 import Turnero.AdministrarServicios;
+import Turnero.Asesor;
 import Turnero.Prioridad;
  
 
@@ -39,6 +40,11 @@ public class AdministrarTest {
 	 @Test
 	    public void test_Asesor()
 	    {
+		 AdministrarAsesor nuevoAsesor= new AdministrarAsesor(0, null, false);
+		 Asesor list=new Asesor(0, null, false);
+		 nuevoAsesor.AgregarAsesor("jj", 123,true);
+		 list=nuevoAsesor.getAsesor().get(0);
+		 assertEquals("jj",list.getNombre());
 	    }
 	
 }

@@ -24,7 +24,6 @@ public class AdministrarAsesor extends Asesor{
 	
 	public void AgregarAsesor(String nombre, int identificacion,boolean estado) {
 		Asesor newAsesor= new Asesor(identificacion, nombre, estado);
-		newAsesor.setIdentificacion(identificacion);
 		Asesor.add(newAsesor);
 
 }
