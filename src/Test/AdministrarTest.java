@@ -12,8 +12,6 @@ import Turnero.Asesor;
 import Turnero.Prioridad;
 import Turnero.PuntoAtencion;
  
-
-
 public class AdministrarTest {
 	 @Test
 	    public void test_Servicios()
@@ -37,15 +35,24 @@ public class AdministrarTest {
 		 list=nuevoPrioridad.getPrioridad().get(0);
 		 assertEquals("Embarazada", list.getNombre());
 	    }
-//	 @Test
-//	    public void test_Asesor()
-//	    {
-//		 AdministrarAsesor nuevoAsesor= new AdministrarAsesor(0, null, false);
-//		 Asesor list=new Asesor(0, null, false);
-//		 nuevoAsesor.AgregarAsesor("jj", 123,true);
-//		 list=nuevoAsesor.getAsesor().get(0);
-//		 assertEquals("jj",list.getNombre());
-//	    }
+	 @Test
+	    public void test_Asesor()
+	    {//Ingresar Asesor
+		 AdministrarAsesor nuevoAsesor= new AdministrarAsesor();
+	     Asesor list=new Asesor(0, null, false);
+		 nuevoAsesor.AgregarAsesor("jj", 123,true);
+		 list=nuevoAsesor.getAsesores().get(0);
+		 assertEquals("jj",list.getNombre());
+		 //Agregar Servicio Asesor
+		 AdministrarServicios nuevoServicio =new AdministrarServicios();
+		 Servicios list1= new Servicios();
+		 nuevoServicio.AgregarServicio("Ser1");
+		 nuevoServicio.AgregarServicio("Ser2");
+		 list1=nuevoServicio.getServicios().get(0);
+		 assertEquals("Ser1", list1.getNombre());
+		 
+		
+	    }
 	 @Test
 	    public void test_PuntoAtencion()
 	    {
