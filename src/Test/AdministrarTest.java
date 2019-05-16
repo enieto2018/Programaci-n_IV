@@ -3,9 +3,7 @@ package Test;
 import Turnero.Servicios;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
-
 import Turnero.AdministrarAsesor;
 import Turnero.AdministrarPrioridad;
 import Turnero.AdministrarPuntoAtencion;

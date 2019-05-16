@@ -7,8 +7,6 @@ public class AdministrarPuntoAtencion
 {
 	List<PuntoAtencion> PuntoAtencion;
 	
-	
-
 	public AdministrarPuntoAtencion(Asesor asesor,boolean disponible) {
 				PuntoAtencion = new ArrayList<PuntoAtencion>();
 	}
@@ -23,6 +21,7 @@ public class AdministrarPuntoAtencion
 	
 	public void AgregarPuntoAtencion(Asesor asesor,boolean disponible) {
 		PuntoAtencion newPuntoAte=new PuntoAtencion();
+		newPuntoAte.setAsesor(asesor);
 		PuntoAtencion.add(newPuntoAte);
 	}
 
