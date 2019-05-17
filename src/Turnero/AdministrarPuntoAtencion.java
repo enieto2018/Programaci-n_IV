@@ -7,7 +7,7 @@ public class AdministrarPuntoAtencion
 {
 	List<PuntoAtencion> PuntoAtencion;
 	
-	public AdministrarPuntoAtencion(Asesor asesor,boolean disponible) {
+	public AdministrarPuntoAtencion() {
 				PuntoAtencion = new ArrayList<PuntoAtencion>();
 	}
 

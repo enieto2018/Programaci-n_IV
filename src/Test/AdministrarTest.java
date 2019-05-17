@@ -3,6 +3,10 @@ package Test;
 import Turnero.Servicios;
 
 import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import Turnero.AdministrarAsesor;
 import Turnero.AdministrarPrioridad;
@@ -39,23 +43,28 @@ public class AdministrarTest {
 	 public void test_Asesor(){//Ingresar Asesor
 		 AdministrarAsesor nuevoAsesor= new AdministrarAsesor();
 		 nuevoAsesor.AgregarAsesor("jj", 123,true);
-		 Asesor list=new Asesor(0, null, false);
-		 list=nuevoAsesor.getAsesores().get(0);
+		 Asesor list = nuevoAsesor.getAsesores().get(0);
 		 assertEquals("jj",list.getNombre());
-		 //Agregar Servicio Asesor
-		 AdministrarServicios nuevoServicio =new AdministrarServicios();
-		 nuevoServicio.AgregarServicio("Ser1");
-		 nuevoServicio.AgregarServicio("Ser2");
+		  
+		 List<Servicios> servicios =new ArrayList<Servicios>();
+		 Servicios servicio = new Servicios();
+	     Servicios servicio1 = new Servicios();
+		 servicio.setNombre("Ser1");
+		 servicio1.setNombre("Ser2");
+		 servicios.add(servicio);
+		 servicios.add(servicio1);
 		
+		 nuevoAsesor.agregarServicioAsesor(123, servicios); 
 	 }
 	 @Test
 	    public void test_PuntoAtencion()
 	    {
-		 AdministrarPuntoAtencion nuevoPunto= new AdministrarPuntoAtencion(null, false);
-		 PuntoAtencion list=new PuntoAtencion();
-		/* nuevoPunto.AgregarPuntoAtencion(asesor, true);
-		 list=nuevoPunto.getPuntoAtencion().
-		 assertEquals("jj",list.getNombre());*/
+		 AdministrarPuntoAtencion nuevoPunto= new AdministrarPuntoAtencion();
+		
+		 AdministrarAsesor nuevoAsesor= new AdministrarAsesor();
+		 nuevoAsesor.AgregarAsesor("jj", 123,true);
+		
+		 nuevoPunto.AgregarPuntoAtencion(nuevoAsesor.getAsesores().get(0), true);
 	    }
 	
 }
