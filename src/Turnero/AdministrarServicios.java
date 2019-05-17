@@ -21,9 +21,9 @@ public class AdministrarServicios{
 
 	public void AgregarServicio(String nombre) {
 		
-	Servicios newServicio= new Servicios();
-	newServicio.setNombre(nombre);
-	Servicios.add(newServicio);
+		Servicios newServicio= new Servicios();
+		newServicio.setNombre(nombre);
+		Servicios.add(newServicio);
 	
 	}
 

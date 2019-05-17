@@ -17,9 +17,9 @@ public class AdministrarTest {
 	    public void test_Servicios()
 	    {//Este test me permite validar el ingreso de un dato a la lista y verificar que esta en la posicion correcta
 		 AdministrarServicios nuevoServicio =new AdministrarServicios();
-		 Servicios list= new Servicios();
 		 nuevoServicio.AgregarServicio("Ser1");
 		 nuevoServicio.AgregarServicio("Ser2");
+		 Servicios list= new Servicios();
 		 list=nuevoServicio.getServicios().get(0);
 		 assertEquals("Ser1", list.getNombre());
 	    }
@@ -36,23 +36,18 @@ public class AdministrarTest {
 		 assertEquals("Embarazada", list.getNombre());
 	    }
 	 @Test
-	    public void test_Asesor()
-	    {//Ingresar Asesor
+	 public void test_Asesor(){//Ingresar Asesor
 		 AdministrarAsesor nuevoAsesor= new AdministrarAsesor();
-	     Asesor list=new Asesor(0, null, false);
 		 nuevoAsesor.AgregarAsesor("jj", 123,true);
+		 Asesor list=new Asesor(0, null, false);
 		 list=nuevoAsesor.getAsesores().get(0);
 		 assertEquals("jj",list.getNombre());
 		 //Agregar Servicio Asesor
 		 AdministrarServicios nuevoServicio =new AdministrarServicios();
-		 Servicios list1= new Servicios();
 		 nuevoServicio.AgregarServicio("Ser1");
 		 nuevoServicio.AgregarServicio("Ser2");
-		 list1=nuevoServicio.getServicios().get(0);
-		 assertEquals("Ser1", list1.getNombre());
-		 
 		
-	    }
+	 }
 	 @Test
 	    public void test_PuntoAtencion()
 	    {
