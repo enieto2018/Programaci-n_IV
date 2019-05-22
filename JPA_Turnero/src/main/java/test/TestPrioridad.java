@@ -19,27 +19,26 @@ public class TestPrioridad {
 		emf = Persistence.createEntityManagerFactory("Persistencia");
 		manager = emf.createEntityManager();
 		
-		insertarInicial();
+		Prioridad p1 = new Prioridad("1");
+		Prioridad p2 = new Prioridad("2");
+		Prioridad p3 = new Prioridad("3");
+		
+		manager.getTransaction().begin();
+		manager.persist(p1);
+		
+		manager.persist(p2);
+		
+		manager.persist(p3);
+		
+		manager.getTransaction().commit();
+		
+	
 				
 		imprimirTodo();
 		
 	}
-	private static void insertarInicial() {
-		Prioridad a = new Prioridad("Maria");
-		Prioridad b = new Prioridad("Jose");
-		Prioridad c = new Prioridad("Perez");
-		
-		manager.getTransaction().begin();
-		manager.persist(a);
-		a.setNombre("Jefer");	// Con set se puede reescribir (modificar) la información.
-		
-		manager.persist(b);
-		
-		manager.persist(c);
-		
-		manager.getTransaction().commit();
-	}
-	@SuppressWarnings("unchecked")
+	
+	
 	private static void imprimirTodo() {
 		List<Prioridad> prioridad = (List<Prioridad>) manager.createQuery("FROM Prioridad").getResultList();
 		System.out.println("En esta Base de Datos hay " + prioridad.size() + " prioridad.");
