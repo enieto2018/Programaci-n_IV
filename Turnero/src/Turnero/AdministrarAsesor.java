@@ -21,6 +21,15 @@ public class AdministrarAsesor{
 		asesores.add(newAsesor);
 	}
 	
+    public Asesor ObtenerAsesor(int identificacion) {
+    	for(Asesor asesor:asesores) {
+			if(identificacion==asesor.getIdentificacion()) {
+				return asesor;
+			}
+    	}
+    	return null;
+    }
+
 	public void agregarServicioAsesor(int identificacion, List<Servicios> servicios) {
 		for(Asesor asesor:asesores) {
 			if(identificacion==asesor.getIdentificacion()) {

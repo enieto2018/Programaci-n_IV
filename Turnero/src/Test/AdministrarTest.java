@@ -60,10 +60,8 @@ public class AdministrarTest {
 	    public void test_PuntoAtencion()
 	    {
 		 AdministrarPuntoAtencion nuevoPunto= new AdministrarPuntoAtencion();
-		
 		 AdministrarAsesor nuevoAsesor= new AdministrarAsesor();
 		 nuevoAsesor.AgregarAsesor("jj", 123,true);
-		
 		 nuevoPunto.AgregarPuntoAtencion(nuevoAsesor.getAsesores().get(0), true);
 	    }
 	

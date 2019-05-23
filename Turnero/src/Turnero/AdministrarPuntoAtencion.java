@@ -24,5 +24,5 @@ public class AdministrarPuntoAtencion
 		newPuntoAte.setAsesor(asesor);
 		PuntoAtencion.add(newPuntoAte);
 	}
-
+	
 }
