@@ -5,25 +5,25 @@ import java.util.List;
 
 public class AdministrarServicios{
 	
-	List<Servicios> Servicios;
+	public static List<Servicios> servicios;
 	
 	public AdministrarServicios() {
-		Servicios = new ArrayList<Servicios>();
+		servicios = new ArrayList<Servicios>();
 	}
 	
 	public List<Servicios> getServicios() {
-		return Servicios;
+		return servicios;
 	}
 
 	public void setServicios(List<Servicios> servicios) {
-		Servicios = servicios;
+		this.servicios = servicios;
 	}
 
 	public void AgregarServicio(String nombre) {
 		
 		Servicios newServicio= new Servicios();
 		newServicio.setNombre(nombre);
-		Servicios.add(newServicio);
+		servicios.add(newServicio);
 	
 	}
 

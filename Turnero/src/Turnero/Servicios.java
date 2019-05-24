@@ -1,12 +1,13 @@
 package Turnero;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Servicios {
 	
 	private String nombre;
 	
-	List<Turno>turnos;
+	List<Turno>turnos=new ArrayList<Turno>();
 	
 	public String getNombre() {
 		return nombre;
