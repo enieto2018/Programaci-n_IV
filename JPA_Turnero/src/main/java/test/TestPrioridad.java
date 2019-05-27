@@ -25,15 +25,10 @@ public class TestPrioridad {
 		
 		manager.getTransaction().begin();
 		manager.persist(p1);
-		
 		manager.persist(p2);
-		
 		manager.persist(p3);
-		
 		manager.getTransaction().commit();
-		
-	
-				
+			
 		imprimirTodo();
 		
 	}
