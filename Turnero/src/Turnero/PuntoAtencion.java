@@ -2,6 +2,7 @@ package Turnero;
 
 public class PuntoAtencion {
 	
+	int id;
 	Asesor asesor;
 	private boolean disponible ;
 	
@@ -17,6 +18,11 @@ public class PuntoAtencion {
 	public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
 	}
-	
-	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+		
 	}

@@ -9,6 +9,7 @@ public class AdministracionTurnero {
 	AdministrarPrioridad administrarPrioridad =new AdministrarPrioridad();
 	public static AdministrarServicios administrarServicios =new AdministrarServicios();
 	AdministrarPuntoAtencion administrarPunto= new AdministrarPuntoAtencion();
+	Turnero administrarTurno= new Turnero ();
 	
 	public void agregarAsesor(String nombre, int identificacion,boolean estado) {
 		administrarAsesor.AgregarAsesor(nombre, identificacion, estado);
@@ -25,7 +26,9 @@ public class AdministracionTurnero {
 	public void agregarPunto(Asesor asesor,boolean disponible) {
 		administrarPunto.AgregarPuntoAtencion(asesor, disponible);
 	}
-	
+	public void enturnar(int identificacion,String nombre,Servicios servicio,Prioridad prioridad) {
+		administrarTurno.enturnar(identificacion, nombre, servicio, prioridad);
+	}
 	
 	public AdministrarAsesor getAdministrarAsesor() {
 		return administrarAsesor;
@@ -50,6 +53,12 @@ public class AdministracionTurnero {
 	}
 	public void setAdministrarPunto(AdministrarPuntoAtencion administrarPunto) {
 		this.administrarPunto = administrarPunto;
+	}
+	public Turnero getAdministrarTurno() {
+		return administrarTurno;
+	}
+	public void setAdministrarTurno(Turnero administrarTurno) {
+		this.administrarTurno = administrarTurno;
 	}
 	
 	

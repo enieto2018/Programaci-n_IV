@@ -11,20 +11,13 @@ public class AdministrarPuntoAtencion
 		return listaPuntoAtencion;
 	}
 
-
-
 	public void setListaPuntoAtencion(List<PuntoAtencion> listaPuntoAtencion) {
 		this.listaPuntoAtencion = listaPuntoAtencion;
 	}
 
-
-
 	public AdministrarPuntoAtencion() {
 		listaPuntoAtencion = new ArrayList<PuntoAtencion>();
 	}
-
-
-	
 	public void AgregarPuntoAtencion(Asesor asesor,boolean disponible) {
 		if (listaPuntoAtencion.size()<=10) {
 			PuntoAtencion newPuntoAte=new PuntoAtencion();
