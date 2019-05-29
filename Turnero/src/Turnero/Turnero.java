@@ -5,11 +5,18 @@ import java.util.List;
 
 public class Turnero {
 	
-	List<Turno>listaLlegada = new ArrayList<Turno>();
+	List<Turno>listaLlegada;
+	List<Turno>listaAtendidos;
+	List<Servicios> listaServicios;
+	
+	public Turnero() {
+		listaLlegada = new ArrayList<Turno>();
+		listaAtendidos = new ArrayList<Turno>();
+		listaServicios = AdministrarServicios.servicios;
+	}
 	
 	public void enturnar(int identificacion,String nombre,Servicios servicio,Prioridad prioridad) {
-		List<Servicios> listaServicios = AdministrarServicios.servicios;
-		
+
 		Turno turno =new Turno();
 		turno.setUsuario(new Usuario(identificacion, nombre));
 		turno.setServicio(servicio);
@@ -23,6 +30,12 @@ public class Turnero {
 			}
 			
 		}
+		
+	}
+	
+	public void atender(int identificacion) {
+		listaServicios = AdministrarServicios.servicios;
+		
 		
 	}
 
