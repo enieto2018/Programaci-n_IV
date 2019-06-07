@@ -1,5 +1,7 @@
 package Turnero;
 
+import modelo.Asesor;
+
 public class PuntoAtencion {
 	
 	int id;

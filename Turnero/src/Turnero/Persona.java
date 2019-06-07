@@ -2,21 +2,24 @@ package Turnero;
 
 public class Persona {
 	
-	protected  int identificacion;
+	protected  String identificacion;
 	protected  String nombre;
 	
-	public Persona(int identificacion, String nombre) {
+	public Persona(String identificacion, String nombre) {
 		this.identificacion = identificacion;
 		this.nombre = nombre;
 	}
 
-	public int getIdentificacion() {
+	
+	public String getIdentificacion() {
 		return identificacion;
 	}
 
-	public void setIdentificacion(int identificacion) {
+
+	public void setIdentificacion(String identificacion) {
 		this.identificacion = identificacion;
 	}
+
 
 	public String getNombre() {
 		return nombre;

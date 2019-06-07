@@ -15,7 +15,7 @@ public class Turnero {
 		listaServicios = AdministrarServicios.servicios;
 	}
 	
-	public void enturnar(int identificacion,String nombre,Servicios servicio,Prioridad prioridad) {
+	public void enturnar(String identificacion,String nombre,Servicios servicio,Prioridad prioridad) {
 
 		Turno turno =new Turno();
 		turno.setUsuario(new Usuario(identificacion, nombre));
@@ -33,7 +33,7 @@ public class Turnero {
 		
 	}
 	
-	public void atender(int identificacion) {
+	public void atender(String identificacion) {
 		listaServicios = AdministrarServicios.servicios;
 		
 		

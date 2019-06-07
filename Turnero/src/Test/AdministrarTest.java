@@ -1,6 +1,8 @@
 package Test;
 
 import Turnero.Servicios;
+import controlador.AdministrarAsesor;
+import modelo.Asesor;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,11 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
-import Turnero.AdministrarAsesor;
+
 import Turnero.AdministrarPrioridad;
 import Turnero.AdministrarPuntoAtencion;
 import Turnero.AdministrarServicios;
-import Turnero.Asesor;
 import Turnero.Prioridad;
 import Turnero.PuntoAtencion;
  
@@ -42,7 +43,7 @@ public class AdministrarTest {
 	 @Test
 	 public void test_Asesor(){//Ingresar Asesor
 		 AdministrarAsesor nuevoAsesor= new AdministrarAsesor();
-		 nuevoAsesor.AgregarAsesor("jj", 123,true);
+		 nuevoAsesor.agregarAsesor("jj", "123",true);
 		 Asesor list = nuevoAsesor.getAsesores().get(0);
 		 assertEquals("jj",list.getNombre());
 		  
@@ -54,14 +55,14 @@ public class AdministrarTest {
 		 servicios.add(servicio);
 		 servicios.add(servicio1);
 		
-		 nuevoAsesor.agregarServicioAsesor(123, servicios); 
+		 nuevoAsesor.agregarServicioAsesor("123", servicios); 
 	 }
 	 @Test
 	    public void test_PuntoAtencion()
 	    {
 		 AdministrarPuntoAtencion nuevoPunto= new AdministrarPuntoAtencion();
 		 AdministrarAsesor nuevoAsesor= new AdministrarAsesor();
-		 nuevoAsesor.AgregarAsesor("jj", 123,true);
+		 nuevoAsesor.agregarAsesor("jj", "123",true);
 		 nuevoPunto.AgregarPuntoAtencion(nuevoAsesor.getAsesores().get(0), true);
 	    }
 	

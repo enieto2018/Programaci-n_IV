@@ -1,14 +1,17 @@
-package Turnero;
+package modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Turnero.Persona;
+import Turnero.Servicios;
 
 public class Asesor extends Persona{
 	
 	private boolean estado;
 	List<Servicios> Servicios = new ArrayList<Servicios>();
 	
-    public Asesor(int identificacion, String nombre, boolean estado) {
+    public Asesor(String identificacion, String nombre, boolean estado) {
 		super(identificacion, nombre);
 		this.estado = estado;
 	}

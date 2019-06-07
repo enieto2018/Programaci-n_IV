@@ -3,6 +3,8 @@ package Turnero;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.Asesor;
+
 public class AdministrarPuntoAtencion 
 {
 	List<PuntoAtencion> listaPuntoAtencion;

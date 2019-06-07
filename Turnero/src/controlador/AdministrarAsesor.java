@@ -1,7 +1,10 @@
-package Turnero;
+package controlador;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Turnero.Servicios;
+import modelo.Asesor;
 
 public class AdministrarAsesor{
 	
@@ -16,12 +19,12 @@ public class AdministrarAsesor{
 		this.asesores = asesores;
 	}
 	
-	public void AgregarAsesor(String nombre, int identificacion,boolean estado) {
+	public void agregarAsesor(String nombre, String identificacion,boolean estado) {
 		Asesor newAsesor= new Asesor(identificacion, nombre, estado);
 		asesores.add(newAsesor);
 	}
 	
-    public Asesor ObtenerAsesor(int identificacion) {
+    public Asesor obtenerAsesor(String identificacion) {
     	for(Asesor asesor:asesores) {
 			if(identificacion==asesor.getIdentificacion()) {
 				return asesor;
@@ -29,8 +32,15 @@ public class AdministrarAsesor{
     	}
     	return null;
     }
+    
+    public void listarAsesor() {
+    	for(Asesor asesor:asesores) {
+			System.out.println(asesor.getNombre()+"-"+asesor.getIdentificacion());
+    	}
+    	
+    }
 
-	public void agregarServicioAsesor(int identificacion, List<Servicios> servicios) {
+	public void agregarServicioAsesor(String identificacion, List<Servicios> servicios) {
 		for(Asesor asesor:asesores) {
 			if(identificacion==asesor.getIdentificacion()) {
 				asesor.setServicios(servicios);

@@ -2,6 +2,9 @@ package Turnero;
 
 import java.util.List;
 
+import controlador.AdministrarAsesor;
+import modelo.Asesor;
+
 public class AdministracionTurnero {
 
 	
@@ -11,10 +14,10 @@ public class AdministracionTurnero {
 	AdministrarPuntoAtencion administrarPunto= new AdministrarPuntoAtencion();
 	Turnero administrarTurno= new Turnero ();
 	
-	public void agregarAsesor(String nombre, int identificacion,boolean estado) {
-		administrarAsesor.AgregarAsesor(nombre, identificacion, estado);
+	public void agregarAsesor(String nombre, String identificacion,boolean estado) {
+		administrarAsesor.agregarAsesor(nombre, identificacion, estado);
 	}
-	public void agregarServicioAsesor(int identificacion, List<Servicios> servicios) {
+	public void agregarServicioAsesor(String identificacion, List<Servicios> servicios) {
 		administrarAsesor.agregarServicioAsesor(identificacion, servicios);	
 	}                                                         
 	public void agregarPrioridad (String nombre) {
@@ -26,7 +29,7 @@ public class AdministracionTurnero {
 	public void agregarPunto(Asesor asesor,boolean disponible) {
 		administrarPunto.AgregarPuntoAtencion(asesor, disponible);
 	}
-	public void enturnar(int identificacion,String nombre,Servicios servicio,Prioridad prioridad) {
+	public void enturnar(String identificacion,String nombre,Servicios servicio,Prioridad prioridad) {
 		administrarTurno.enturnar(identificacion, nombre, servicio, prioridad);
 	}
 	
