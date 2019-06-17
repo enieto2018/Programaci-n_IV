@@ -1,7 +1,12 @@
-package Turnero;
+package controlador;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import modelo.Prioridad;
+import modelo.Servicios;
+import modelo.Turno;
+import modelo.Usuario;
 
 public class Turnero {
 	

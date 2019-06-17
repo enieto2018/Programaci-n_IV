@@ -1,9 +1,10 @@
-package Turnero;
+package controlador;
 
 import java.util.List;
 
-import controlador.AdministrarAsesor;
 import modelo.Asesor;
+import modelo.Prioridad;
+import modelo.Servicios;
 
 public class AdministracionTurnero {
 

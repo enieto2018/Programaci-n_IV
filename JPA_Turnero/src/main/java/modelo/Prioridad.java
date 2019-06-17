@@ -18,9 +18,6 @@ public class Prioridad implements Serializable{
 	@Column(name = "NOMBRE")
 	private String nombre;
 	
-	public Prioridad() {
-		
-	}
 	public Prioridad(String nombre) {
 		this.nombre = nombre;
 	}

@@ -3,8 +3,8 @@ package controlador;
 import java.util.ArrayList;
 import java.util.List;
 
-import Turnero.Servicios;
 import modelo.Asesor;
+import modelo.Servicios;
 
 public class AdministrarAsesor{
 	

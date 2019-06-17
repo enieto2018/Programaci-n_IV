@@ -1,6 +1,4 @@
-package Turnero;
-
-import modelo.Asesor;
+package modelo;
 
 public class PuntoAtencion {
 	

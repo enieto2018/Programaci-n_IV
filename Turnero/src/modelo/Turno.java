@@ -1,4 +1,4 @@
-package Turnero;
+package modelo;
 
 public class Turno {
 	

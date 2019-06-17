@@ -6,6 +6,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Turnero extends JFrame {
 
@@ -47,5 +50,13 @@ public class Turnero extends JFrame {
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setBounds(25, 41, 46, 14);
 		contentPane.add(lblNombre);
+		
+		JButton btnAgregar = new JButton("Agregar");
+		btnAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnAgregar.setBounds(64, 108, 89, 23);
+		contentPane.add(btnAgregar);
 	}
 }

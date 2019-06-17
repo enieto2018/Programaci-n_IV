@@ -8,37 +8,36 @@ import javax.persistence.Persistence;
 
 import modelo.Prioridad;
 
-public class TestPrioridad {
-	//@PersistenceContext(unitName = "Persistencia")
+public class testPrioridad {
+	
 	private static EntityManager manager;
 	private static EntityManagerFactory emf;
 
-	
 	public static void main(String[] args) {
-		// Creando el gestor de Persistencia (EM).
-		emf = Persistence.createEntityManagerFactory("Persistencia");
+		/* Crear el gestor de persistencia */
+		emf = Persistence.createEntityManagerFactory("persistence");
 		manager = emf.createEntityManager();
 		
-		Prioridad p1 = new Prioridad("1");
-		Prioridad p2 = new Prioridad("2");
-		Prioridad p3 = new Prioridad("3");
+		Prioridad p = new Prioridad("1");
+		Prioridad p1 = new Prioridad("2");
+		Prioridad p2 = new Prioridad("3");
 		
 		manager.getTransaction().begin();
+		manager.persist(p);
 		manager.persist(p1);
 		manager.persist(p2);
-		manager.persist(p3);
 		manager.getTransaction().commit();
-			
-		imprimirTodo();
 		
+		
+
+		imprimirTodo();
 	}
-	
-	
+
 	private static void imprimirTodo() {
 		List<Prioridad> prioridad = (List<Prioridad>) manager.createQuery("FROM Prioridad").getResultList();
-		System.out.println("En esta Base de Datos hay " + prioridad.size() + " prioridad.");
-		for(Prioridad priorid : prioridad) {
-			System.out.println(priorid.toString());
+		System.out.print("HOY " + prioridad.size() + "prioridades en el sistema \n");
+		for (Prioridad pri : prioridad) {
+			System.out.print(pri.toString()+"\n");
 		}
 	}
 

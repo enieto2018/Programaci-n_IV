@@ -3,9 +3,6 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-import Turnero.Persona;
-import Turnero.Servicios;
-
 public class Asesor extends Persona{
 	
 	private boolean estado;

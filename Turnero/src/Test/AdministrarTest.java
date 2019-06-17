@@ -1,8 +1,13 @@
 package Test;
 
-import Turnero.Servicios;
 import controlador.AdministrarAsesor;
+import controlador.AdministrarPrioridad;
+import controlador.AdministrarPuntoAtencion;
+import controlador.AdministrarServicios;
 import modelo.Asesor;
+import modelo.Prioridad;
+import modelo.PuntoAtencion;
+import modelo.Servicios;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,12 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
-
-import Turnero.AdministrarPrioridad;
-import Turnero.AdministrarPuntoAtencion;
-import Turnero.AdministrarServicios;
-import Turnero.Prioridad;
-import Turnero.PuntoAtencion;
  
 public class AdministrarTest {
 	 @Test
