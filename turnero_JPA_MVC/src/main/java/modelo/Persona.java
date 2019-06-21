@@ -1,8 +1,23 @@
 package modelo;
 
-public class Persona {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TABLA_PERSONA")
+
+public class Persona implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	@Id
+	@Column(name = "IDENTIFICACION")
 	protected  String identificacion;
+	
+	@Column(name = "NOMBRE")
 	protected  String nombre;
 	
 	public Persona(String identificacion, String nombre) {
@@ -10,7 +25,6 @@ public class Persona {
 		this.nombre = nombre;
 	}
 
-	
 	public String getIdentificacion() {
 		return identificacion;
 	}
@@ -27,6 +41,12 @@ public class Persona {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Persona [identificacion=" + identificacion + ", nombre=" + nombre + "]";
 	}
 	
 	
