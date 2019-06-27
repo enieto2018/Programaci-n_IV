@@ -5,11 +5,10 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "TABLA_PERSONA")
-
+@MappedSuperclass
 public class Persona implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -19,6 +18,9 @@ public class Persona implements Serializable {
 	
 	@Column(name = "NOMBRE")
 	protected  String nombre;
+	
+	public Persona() {
+	}
 	
 	public Persona(String identificacion, String nombre) {
 		this.identificacion = identificacion;

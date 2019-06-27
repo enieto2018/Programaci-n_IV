@@ -3,11 +3,16 @@ package controlador;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import modelo.Asesor;
 import modelo.Servicios;
 
 public class AdministrarAsesor{
-	
+	private EntityManagerFactory emf= Persistence.createEntityManagerFactory("persistence");
+	private EntityManager manager ; 
 
 	List<Asesor> asesores = new ArrayList<Asesor>();
 
@@ -22,7 +27,27 @@ public class AdministrarAsesor{
 	public void agregarAsesor(String nombre, String identificacion,boolean estado) {
 		Asesor newAsesor= new Asesor(identificacion, nombre, estado);
 		asesores.add(newAsesor);
+		
+		abrirEntityManager();
+		
+		manager.getTransaction().begin();
+		manager.merge(newAsesor);
+		manager.getTransaction().commit();
+		cerrarEntityManager();
+		
 	}
+	
+	//TODO Preguntar por esto
+	public void cerrarEntityManager () {
+		if(manager.isOpen()) 
+			manager.close();			
+	}
+	
+	public void abrirEntityManager () {
+		if(manager == null || !manager.isOpen()) 
+			manager = emf.createEntityManager();		
+	}
+	
 	
     public Asesor obtenerAsesor(String identificacion) {
     	for(Asesor asesor:asesores) {

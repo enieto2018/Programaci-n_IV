@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class VistaPrioridad extends JFrame {
 
@@ -50,11 +51,11 @@ public class VistaPrioridad extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNombrePrio = new JLabel("Nombre");
-		lblNombrePrio.setBounds(40, 42, 46, 14);
+		lblNombrePrio.setBounds(39, 93, 46, 14);
 		contentPane.add(lblNombrePrio);
 		
 		textNombrePrio = new JTextField();
-		textNombrePrio.setBounds(95, 39, 86, 20);
+		textNombrePrio.setBounds(95, 90, 86, 20);
 		contentPane.add(textNombrePrio);
 		textNombrePrio.setColumns(10);
 		
@@ -62,12 +63,11 @@ public class VistaPrioridad extends JFrame {
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				nombrePrioridad=textNombrePrio.getText();
-				
 				adminPrioridad.AgregarPrioridad(nombrePrioridad);
 				adminPrioridad.listarPrioridades();
 			}
 		});
-		btnAgregar.setBounds(95, 112, 89, 23);
+		btnAgregar.setBounds(95, 149, 89, 23);
 		contentPane.add(btnAgregar);
 		
 		JButton btnConsultar = new JButton("Consultar");
@@ -76,7 +76,12 @@ public class VistaPrioridad extends JFrame {
 				adminPrioridad.listarPrioridades();
 			}
 		});
-		btnConsultar.setBounds(216, 112, 89, 23);
+		btnConsultar.setBounds(222, 149, 89, 23);
 		contentPane.add(btnConsultar);
+		
+		JLabel lblPrioridad = new JLabel("PRIORIDAD");
+		lblPrioridad.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblPrioridad.setBounds(157, 31, 106, 34);
+		contentPane.add(lblPrioridad);
 	}
 }

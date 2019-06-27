@@ -1,12 +1,30 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Asesor extends Persona{
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TABLA_ASESOR")
+public class Asesor extends Persona implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+	
+	@Column (name ="ESTADO")
 	private boolean estado;
+	
+	@OneToMany (mappedBy="asesor",cascade = CascadeType.ALL)
 	List<Servicios> Servicios = new ArrayList<Servicios>();
+
+	public Asesor() {
+
+	}
 	
     public Asesor(String identificacion, String nombre, boolean estado) {
 		super(identificacion, nombre);
@@ -28,4 +46,11 @@ public class Asesor extends Persona{
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
+
+	@Override
+	public String toString() {
+		return "Asesor [estado=" + estado + ", Servicios=" + Servicios + "]";
+	}
+	
+	
 }

@@ -2,8 +2,13 @@ package modelo;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
 
 public class PuntoAtencion implements Serializable{
 	
@@ -11,7 +16,8 @@ public class PuntoAtencion implements Serializable{
 	@Id
 	@Column(name = "ID")
 	int id;
-	
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "IDENTIFICACION")
 	Asesor asesor;
 	
 	@Column(name = "DISPONIBLE")

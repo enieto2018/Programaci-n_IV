@@ -14,7 +14,6 @@ public class Prioridad implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "NOMBRE")
-	
 	private String nombre;
 
 	public String getNombre() {

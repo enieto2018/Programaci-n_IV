@@ -15,6 +15,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class VistaAsesor extends JFrame {
 	private AdministrarAsesor adminAsesor = new AdministrarAsesor();
@@ -53,25 +54,25 @@ public class VistaAsesor extends JFrame {
 		contentPane.setLayout(null);
 		
 		txtIdentificacion = new JTextField();
-		txtIdentificacion.setBounds(194, 36, 116, 22);
+		txtIdentificacion.setBounds(194, 71, 116, 22);
 		contentPane.add(txtIdentificacion);
 		txtIdentificacion.setColumns(10);
 		
 		JLabel lblIdentificacin = new JLabel("Identificaci\u00F3n");
-		lblIdentificacin.setBounds(32, 39, 116, 16);
+		lblIdentificacin.setBounds(36, 74, 116, 16);
 		contentPane.add(lblIdentificacin);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(32, 79, 56, 16);
+		lblNombre.setBounds(36, 115, 56, 16);
 		contentPane.add(lblNombre);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(194, 71, 116, 22);
+		txtNombre.setBounds(194, 112, 116, 22);
 		contentPane.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		JCheckBox chbEstado = new JCheckBox("Estado");
-		chbEstado.setBounds(32, 119, 113, 25);
+		chbEstado.setBounds(32, 151, 113, 25);
 		contentPane.add(chbEstado);
 		
 		JButton btnGuardar = new JButton("Guardar");
@@ -85,7 +86,7 @@ public class VistaAsesor extends JFrame {
 			}
 			
 		});
-		btnGuardar.setBounds(176, 177, 97, 25);
+		btnGuardar.setBounds(179, 202, 97, 25);
 		contentPane.add(btnGuardar);
 		
 		JButton btnListar = new JButton("Listar");
@@ -94,7 +95,12 @@ public class VistaAsesor extends JFrame {
 				adminAsesor.listarAsesor();
 			}
 		});
-		btnListar.setBounds(304, 177, 97, 25);
+		btnListar.setBounds(306, 202, 97, 25);
 		contentPane.add(btnListar);
+		
+		JLabel lblAsesor = new JLabel("ASESOR");
+		lblAsesor.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblAsesor.setBounds(163, 24, 97, 36);
+		contentPane.add(lblAsesor);
 	}
 }
