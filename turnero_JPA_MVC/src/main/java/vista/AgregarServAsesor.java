@@ -6,24 +6,34 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controlador.AdministrarAsesor;
+import controlador.AdministrarServicios;
+import modelo.Servicios;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Choice;
-import java.awt.List;
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
 
 public class AgregarServAsesor extends JFrame {
 
+	private String identificacion;
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField txtIdentificacion;
+	private AdministrarServicios adminServicios = new AdministrarServicios();
+	private AdministrarAsesor adminAsesor =new AdministrarAsesor();
+	private List<Servicios> listServAsesor = new ArrayList<Servicios>();
 
 	/**
 	 * Launch the application.
@@ -61,14 +71,13 @@ public class AgregarServAsesor extends JFrame {
 		lblIdentAsesor.setBounds(41, 89, 100, 14);
 		contentPane.add(lblIdentAsesor);
 		
-		textField = new JTextField();
-		textField.setBounds(166, 86, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtIdentificacion = new JTextField();
+		txtIdentificacion.setBounds(166, 86, 86, 20);
+		contentPane.add(txtIdentificacion);
+		txtIdentificacion.setColumns(10);
 		
-		JButton btnAgregar = new JButton("Agregar");
-		btnAgregar.setBounds(91, 211, 89, 23);
-		contentPane.add(btnAgregar);
+		
+		
 		
 		JButton btnListr = new JButton("Listar");
 		btnListr.addActionListener(new ActionListener() {
@@ -85,20 +94,41 @@ public class AgregarServAsesor extends JFrame {
 		JList list = new JList();
 		list.setBounds(349, 164, -80, -24);
 		contentPane.add(list);
+		List<Servicios> listaServicios = adminServicios.obtenerListaServicios();
 		
-		JList list_1 = new JList();
-		list_1.setModel(new AbstractListModel() {
-			String[] values = new String[] {"1", "2", "3"};
+		String[] values = new String[listaServicios.size()];
+		for(int i=0; i<values.length; i++){
+			values[i] = listaServicios.get(i).getNombre();
+		}
+		JList list_Servicios = new JList();
+		list_Servicios.setModel(new AbstractListModel() {
+		//	String[] values = new String[] {"1", "2", "3"};
 			public int getSize() {
-				return values.length;
+				return listaServicios.size();
 			}
 			public Object getElementAt(int index) {
-				return values[index];
+				return listaServicios.get(index).getNombre();
 			}
 		});
-		list_1.setBounds(166, 113, 114, 52);
-		contentPane.add(list_1);
+		
+		list_Servicios.setBounds(166, 113, 114, 52);
+		contentPane.add(list_Servicios);
+		
+		JButton btnAgregar = new JButton("Agregar");
+		btnAgregar.setBounds(91, 211, 89, 23);
+		contentPane.add(btnAgregar);
+		btnAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				identificacion=txtIdentificacion.getText();
+				
+				for(int i=0; i<list_Servicios.getSelectedValuesList().size(); i++) {
+					listServAsesor.add(adminServicios.obtenerServicioXNombre(list_Servicios.getSelectedValuesList().get(i).toString())) ;
+				}
+			}				
+		});
 		
 		
+		adminAsesor.agregarServicioAsesor(identificacion, listServAsesor);
 	}
+	
 }

@@ -28,8 +28,6 @@ public class Servicios implements Serializable {
 	@JoinColumn (name="ASESOR_ID")
 	private Asesor asesor;
 	
-	
-	
 	public Servicios() {
 	}
 
@@ -52,17 +50,16 @@ public class Servicios implements Serializable {
 		this.asesor = asesor;
 	}
 
-	@Override
-	public String toString() {
-		return "Servicios [nombre=" + nombre + ", asesor=" + asesor + "]";
-	}
-
 	public List<Turno> getTurnos() {
 		return turnos;
 	}
 
 	public void setTurnos(List<Turno> turnos) {
 		this.turnos = turnos;
+	}
+	@Override
+	public String toString() {
+		return "Servicios [nombre=" + nombre + ", asesor=" + asesor + "]";
 	}
 
 }

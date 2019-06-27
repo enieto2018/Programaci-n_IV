@@ -76,6 +76,11 @@ public class VistaServicio extends JFrame {
 		contentPane.add(lblServicio);
 		
 		JButton btnListar = new JButton("Listar");
+		btnListar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				adminServicio.listarServicios();
+			}
+		});
 		btnListar.setBounds(271, 152, 89, 23);
 		contentPane.add(btnListar);
 	}

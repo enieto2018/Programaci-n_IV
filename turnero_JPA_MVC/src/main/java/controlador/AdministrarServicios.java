@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import modelo.Prioridad;
 import modelo.Servicios;
 
 public class AdministrarServicios{
@@ -54,7 +55,38 @@ public class AdministrarServicios{
 			manager = emf.createEntityManager();		
 	}
 	
+	public void listarServicios() {
+		abrirEntityManager();
+		List<Servicios> servicio = (List<Servicios>) manager.createQuery("FROM Servicios").getResultList();
+		for (Servicios serv : servicio) {
+			System.out.print(serv.getNombre()+"\n");
+		}
+		System.out.println("Total Servicios: " + servicio.size());
+		
+		cerrarEntityManager();
+	}
 	
 	
+	public List<Servicios> obtenerListaServicios() {
+		abrirEntityManager();
+		List<Servicios> listaServicios = (List<Servicios>) manager.createQuery("FROM Servicios").getResultList();
+		
+		cerrarEntityManager();
+		return listaServicios;
+	}
+	
+	public Servicios obtenerServicioXNombre(String nombre) {
+		abrirEntityManager();
+		List<Servicios> listaServicios = (List<Servicios>) manager.createQuery("FROM Servicios").getResultList();
+		for (Servicios serv : listaServicios) {
+			if(nombre.equals(serv.getNombre())){
+				cerrarEntityManager();
+				return serv;
+			}
+		}
+		cerrarEntityManager();
+		return null;
+		
+	}
 
 }
