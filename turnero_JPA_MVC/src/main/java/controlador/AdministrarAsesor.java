@@ -77,7 +77,6 @@ public class AdministrarAsesor{
 	public List<Asesor> obtenerListaAsesores() {
 		abrirEntityManager();
 		List<Asesor> listaAsesores = (List<Asesor>) manager.createQuery("FROM Asesor").getResultList();
-		
 		cerrarEntityManager();
 		return listaAsesores;
 	}
