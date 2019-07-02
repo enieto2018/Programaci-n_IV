@@ -66,11 +66,21 @@ public class AdministrarAsesor{
     }
 
 	public void agregarServicioAsesor(String identificacion, List<Servicios> servicios) {
-		for(Asesor asesor:asesores) {
+		for(Asesor asesor:obtenerListaAsesores()) {
 			if(identificacion==asesor.getIdentificacion()) {
 				asesor.setServicios(servicios);
 			}
 				
 		}
 	}
+	
+	public List<Asesor> obtenerListaAsesores() {
+		abrirEntityManager();
+		List<Asesor> listaAsesores = (List<Asesor>) manager.createQuery("FROM Asesor").getResultList();
+		
+		cerrarEntityManager();
+		return listaAsesores;
+	}
 }
+
+

@@ -72,7 +72,7 @@ public class AgregarServAsesor extends JFrame {
 		contentPane.add(lblIdentAsesor);
 		
 		txtIdentificacion = new JTextField();
-		txtIdentificacion.setBounds(166, 86, 86, 20);
+		txtIdentificacion.setBounds(166, 86, 114, 20);
 		contentPane.add(txtIdentificacion);
 		txtIdentificacion.setColumns(10);
 		
@@ -126,7 +126,6 @@ public class AgregarServAsesor extends JFrame {
 				}
 			}				
 		});
-		
 		
 		adminAsesor.agregarServicioAsesor(identificacion, listServAsesor);
 	}
