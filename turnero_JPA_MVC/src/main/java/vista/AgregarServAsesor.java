@@ -76,9 +76,6 @@ public class AgregarServAsesor extends JFrame {
 		contentPane.add(txtIdentificacion);
 		txtIdentificacion.setColumns(10);
 		
-		
-		
-		
 		JButton btnListr = new JButton("Listar");
 		btnListr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -120,13 +117,11 @@ public class AgregarServAsesor extends JFrame {
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				identificacion=txtIdentificacion.getText();
-				
 				for(int i=0; i<list_Servicios.getSelectedValuesList().size(); i++) {
 					listServAsesor.add(adminServicios.obtenerServicioXNombre(list_Servicios.getSelectedValuesList().get(i).toString())) ;
 				}
 			}				
 		});
-		
 		adminAsesor.agregarServicioAsesor(identificacion, listServAsesor);
 	}
 	

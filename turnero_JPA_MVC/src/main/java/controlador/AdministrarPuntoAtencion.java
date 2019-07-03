@@ -21,7 +21,7 @@ public class AdministrarPuntoAtencion
 	public AdministrarPuntoAtencion() {
 		listaPuntoAtencion = new ArrayList<PuntoAtencion>();
 	}
-	public void AgregarPuntoAtencion(Asesor asesor,boolean disponible) {
+	public void AgregarPuntoAtencion(Asesor asesor,boolean disponible, String nombre) {
 		if (listaPuntoAtencion.size()<=10) {
 			PuntoAtencion newPuntoAte=new PuntoAtencion();
 			newPuntoAte.setAsesor(asesor);

@@ -63,7 +63,7 @@ public class Enturnar extends JFrame {
 		textField.setColumns(10);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(45, 100, 46, 14);
+		lblNombre.setBounds(45, 92, 46, 14);
 		contentPane.add(lblNombre);
 		
 		textField_1 = new JTextField();
@@ -82,5 +82,13 @@ public class Enturnar extends JFrame {
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setBounds(143, 156, 86, 20);
 		contentPane.add(comboBox_1);
+		
+		JLabel lbServicio = new JLabel("Servicio");
+		lbServicio.setBounds(45, 125, 46, 14);
+		contentPane.add(lbServicio);
+		
+		JLabel lblPrioridad = new JLabel("Prioridad");
+		lblPrioridad.setBounds(45, 159, 46, 14);
+		contentPane.add(lblPrioridad);
 	}
 }
