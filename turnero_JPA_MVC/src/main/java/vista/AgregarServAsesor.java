@@ -93,10 +93,6 @@ public class AgregarServAsesor extends JFrame {
 		contentPane.add(list);
 		List<Servicios> listaServicios = adminServicios.obtenerListaServicios();
 		
-		String[] values = new String[listaServicios.size()];
-		for(int i=0; i<values.length; i++){
-			values[i] = listaServicios.get(i).getNombre();
-		}
 		JList list_Servicios = new JList();
 		list_Servicios.setModel(new AbstractListModel() {
 		//	String[] values = new String[] {"1", "2", "3"};

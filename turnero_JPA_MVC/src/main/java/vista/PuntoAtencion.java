@@ -7,7 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controlador.AdministrarAsesor;
 import controlador.AdministrarPuntoAtencion;
+import modelo.Asesor;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -17,14 +19,20 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
+import javax.swing.DefaultComboBoxModel;
 
 public class PuntoAtencion extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textNombre;
 	private String nombre;
+	private boolean disponible;
 	private AdministrarPuntoAtencion adminPunto= new AdministrarPuntoAtencion();
+	private AdministrarAsesor adminAsesor =new AdministrarAsesor();
+	private String nombreAsesor;
 
 	/**
 	 * Launch the application.
@@ -66,11 +74,30 @@ public class PuntoAtencion extends JFrame {
 		chckbxDisponible.setBounds(71, 161, 97, 23);
 		contentPane.add(chckbxDisponible);
 		
+		List<Asesor> listaAsesores  =adminAsesor.obtenerListaAsesores();
+		
+		String [] listNombAsesor= new String[listaAsesores.size()];
+		
+		for(int i=0; i<listNombAsesor.length; i++) {
+			listNombAsesor[i]=listaAsesores.get(i).getIdentificacion()+" - "+listaAsesores.get(i).getNombre();
+		}
+		
+		JComboBox comboBoxAsesor = new JComboBox();
+		comboBoxAsesor.setModel(new DefaultComboBoxModel(listNombAsesor));
+		comboBoxAsesor.setBounds(170, 122, 79, 20);
+		contentPane.add(comboBoxAsesor);
+		
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				nombre=textNombre.getText();
+				disponible=chckbxDisponible.isSelected();
+				int index=comboBoxAsesor.getSelectedIndex();
+
+				Asesor asesor = listaAsesores.get(index);
+				
 				adminPunto.AgregarPuntoAtencion(asesor, disponible, nombre);
+				
 				
 			}
 		});
@@ -80,10 +107,6 @@ public class PuntoAtencion extends JFrame {
 		JButton btnListar = new JButton("Listar");
 		btnListar.setBounds(230, 203, 89, 23);
 		contentPane.add(btnListar);
-		
-		JComboBox comboBoxAsesor = new JComboBox();
-		comboBoxAsesor.setBounds(170, 122, 79, 20);
-		contentPane.add(comboBoxAsesor);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setBounds(71, 87, 46, 14);

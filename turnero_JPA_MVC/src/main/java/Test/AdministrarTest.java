@@ -62,7 +62,7 @@ public class AdministrarTest {
 		 AdministrarPuntoAtencion nuevoPunto= new AdministrarPuntoAtencion();
 		 AdministrarAsesor nuevoAsesor= new AdministrarAsesor();
 		 nuevoAsesor.agregarAsesor("jj", "123",true);
-		 nuevoPunto.AgregarPuntoAtencion(nuevoAsesor.getAsesores().get(0), true);
+		 nuevoPunto.AgregarPuntoAtencion(nuevoAsesor.getAsesores().get(0), true, null);
 	    }
 	
 }

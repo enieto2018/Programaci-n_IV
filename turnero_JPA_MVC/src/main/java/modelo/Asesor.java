@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -19,7 +20,7 @@ public class Asesor extends Persona implements Serializable{
 	@Column (name ="ESTADO")
 	private boolean estado;
 	
-	@OneToMany (mappedBy="asesor",cascade = CascadeType.ALL)
+	@OneToMany (mappedBy="asesor",cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	List<Servicios> Servicios = new ArrayList<Servicios>();
 
 	public Asesor() {
@@ -49,8 +50,11 @@ public class Asesor extends Persona implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Asesor [estado=" + estado + ", Servicios=" + Servicios + "]";
+		return "Asesor [estado=" + estado + ", Servicios=" + Servicios + ", identificacion=" + identificacion
+				+ ", nombre=" + nombre + "]";
 	}
+
+	
 	
 	
 }

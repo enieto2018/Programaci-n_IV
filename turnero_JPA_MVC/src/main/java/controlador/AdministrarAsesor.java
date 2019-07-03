@@ -37,7 +37,6 @@ public class AdministrarAsesor{
 		
 	}
 	
-	//TODO Preguntar por esto
 	public void cerrarEntityManager () {
 		if(manager.isOpen()) 
 			manager.close();			
