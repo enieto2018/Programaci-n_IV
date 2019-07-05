@@ -20,6 +20,7 @@ public class PuntoAtencion implements Serializable{
 	@Id
 	@Column(name = "ID")
 	int id;
+	
 	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "IDENTIFICACION")
 	Asesor asesor;

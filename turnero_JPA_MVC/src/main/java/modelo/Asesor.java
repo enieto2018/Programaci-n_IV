@@ -24,7 +24,6 @@ public class Asesor extends Persona implements Serializable{
 	List<Servicios> Servicios = new ArrayList<Servicios>();
 
 	public Asesor() {
-
 	}
 	
     public Asesor(String identificacion, String nombre, boolean estado) {
