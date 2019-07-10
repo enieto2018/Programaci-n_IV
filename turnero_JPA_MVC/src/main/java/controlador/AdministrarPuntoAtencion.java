@@ -31,6 +31,7 @@ public class AdministrarPuntoAtencion
 	public void AgregarPuntoAtencion(Asesor asesor,boolean disponible, String nombre) {
 		if (listaPuntoAtencion.size()<=10) {
 			PuntoAtencion newPuntoAte=new PuntoAtencion();
+		    System.out.println(asesor.getNombre());
 			newPuntoAte.setAsesor(asesor);
 			listaPuntoAtencion.add(newPuntoAte);
 			

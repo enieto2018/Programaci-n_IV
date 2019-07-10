@@ -27,7 +27,7 @@ public class AdministrarPrioridad {
 	public void setPrioridad(List<Prioridad> prioridad) {
 		Prioridad = prioridad;
 	}
-
+ 
 
 	public void AgregarPrioridad(String nombre) {
 		Prioridad newPrioridad= new Prioridad();
@@ -52,16 +52,17 @@ public class AdministrarPrioridad {
 			manager = emf.createEntityManager();		
 	}
 	
-	public void listarPrioridades() {
+	public List<Prioridad> listarPrioridades() {
 		abrirEntityManager();
-		List<Prioridad> prioridad = (List<Prioridad>) manager.createQuery("FROM Prioridad").getResultList();
+		List<Prioridad> listaPrioridad = (List<Prioridad>) manager.createQuery("FROM Prioridad").getResultList();
 		
-		for (Prioridad pri : prioridad) {
-			System.out.print(pri.getNombre()+"\n");
-		}
-		System.out.println("Total Prioridades: " + prioridad.size());
+//		for (Prioridad pri : prioridad) {
+//			System.out.print(pri.getNombre()+"\n");
+//		}
+//		System.out.println("Total Prioridades: " + prioridad.size());
 		
 		cerrarEntityManager();
+		return listaPrioridad;
 	}
 	
 	
