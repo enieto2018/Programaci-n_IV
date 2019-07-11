@@ -8,13 +8,20 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controlador.AdministrarPrioridad;
+import modelo.Prioridad;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.ScrollPane;
+
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.ListSelectionModel;
 
 public class VistaPrioridad extends JFrame {
 
@@ -22,6 +29,9 @@ public class VistaPrioridad extends JFrame {
 	private JTextField textNombrePrio;
 	private String nombrePrioridad;
 	private AdministrarPrioridad adminPrioridad=new AdministrarPrioridad();
+	private JTable table;
+	private List<Prioridad> listaPrioridad;
+	private Integer idEditar;
 
 	/**
 	 * Launch the application.
@@ -44,7 +54,7 @@ public class VistaPrioridad extends JFrame {
 	 */
 	public VistaPrioridad() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 514, 572);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -71,11 +81,6 @@ public class VistaPrioridad extends JFrame {
 		contentPane.add(btnAgregar);
 		
 		JButton btnConsultar = new JButton("Consultar");
-		btnConsultar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				adminPrioridad.listarPrioridades();
-			}
-		});
 		btnConsultar.setBounds(222, 149, 89, 23);
 		contentPane.add(btnConsultar);
 		
@@ -83,5 +88,54 @@ public class VistaPrioridad extends JFrame {
 		lblPrioridad.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblPrioridad.setBounds(157, 31, 106, 34);
 		contentPane.add(lblPrioridad);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.setBounds(92, 203, 89, 23);
+		contentPane.add(btnActualizar);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.setBounds(222, 203, 89, 23);
+		contentPane.add(btnEliminar);
+		
+		ScrollPane scroll = new ScrollPane();
+		table = new JTable();
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setBounds(99, 295, 330, 170);
+		scroll.setBounds(99, 295, 330, 170);
+		scroll.add(table);
+		scroll.setVisible(true);
+		contentPane.add(scroll);
+		
+		JButton btnEditar = new JButton("Editar");
+		btnEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(table.getSelectedRow() > -1) {
+					textNombrePrio.setText(table.getValueAt(table.getSelectedRow(), 1).toString());
+					idEditar = Integer.valueOf(table.getValueAt(table.getSelectedRow(), 0).toString());
+				}
+			}
+		});
+		btnEditar.setBounds(350, 149, 89, 23);
+		contentPane.add(btnEditar);
+		
+		
+		btnConsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				DefaultTableModel model = new DefaultTableModel();
+				model.addColumn("Id Prioridad");
+				model.addColumn("Nombre");
+				
+				listaPrioridad = adminPrioridad.listarPrioridades();
+				for(Prioridad p: listaPrioridad) {
+					String[] fila = {p.getIdPrioridad().toString(), p.getNombre()};
+					model.addRow(fila);
+				}
+				table.setModel(model);
+				table.setVisible(true);
+			}
+		});
+		
+		
+		
 	}
 }

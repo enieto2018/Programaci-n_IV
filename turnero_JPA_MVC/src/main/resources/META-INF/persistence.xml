@@ -11,7 +11,7 @@
 	<class>modelo.Servicios</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:h2:D:\Mis documentos\Universidad_UTP\Semestre_5\Repositorio_Progra4\Programaci-n_IV\turnero_JPA_MVC" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:C:\Users\Usuario\Desktop\EstefaniaPersonal\Programacion4\14-06-2019\Programaci-n_IV\turnero_JPA_MVC" />
 			<property name="javax.persistence.jdbc.user" value="sa" />
 			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />  
