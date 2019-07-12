@@ -74,7 +74,7 @@ public class VistaPrioridad extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				nombrePrioridad=textNombrePrio.getText();
 				adminPrioridad.AgregarPrioridad(nombrePrioridad);
-				adminPrioridad.listarPrioridades();
+				limpiar();
 			}
 		});
 		btnAgregar.setBounds(95, 149, 89, 23);
@@ -90,6 +90,21 @@ public class VistaPrioridad extends JFrame {
 		contentPane.add(lblPrioridad);
 		
 		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String dato = textNombrePrio.getText();
+				
+				if(dato != "" && dato != null && idEditar != null) {
+					Prioridad p = new Prioridad();
+					p.setIdPrioridad(idEditar);
+					p.setNombre(dato);
+					
+					adminPrioridad.actualizarPrioridad(p);
+					limpiar();
+					
+				}
+			}
+		});
 		btnActualizar.setBounds(92, 203, 89, 23);
 		contentPane.add(btnActualizar);
 		
@@ -112,6 +127,7 @@ public class VistaPrioridad extends JFrame {
 				if(table.getSelectedRow() > -1) {
 					textNombrePrio.setText(table.getValueAt(table.getSelectedRow(), 1).toString());
 					idEditar = Integer.valueOf(table.getValueAt(table.getSelectedRow(), 0).toString());
+					System.out.println(idEditar);
 				}
 			}
 		});
@@ -137,5 +153,11 @@ public class VistaPrioridad extends JFrame {
 		
 		
 		
+	}
+	
+	public void limpiar() {
+		idEditar = null;
+		textNombrePrio.setText("");
+		table.setModel(new DefaultTableModel());
 	}
 }

@@ -76,4 +76,13 @@ public class AdministrarPrioridad {
 		}
 		return null;
 	}
+	
+	
+	public void actualizarPrioridad(Prioridad prioridad) {
+		abrirEntityManager();
+		manager.getTransaction().begin();
+		manager.merge(prioridad);
+		manager.getTransaction().commit();;
+		cerrarEntityManager();
+	}
 }
