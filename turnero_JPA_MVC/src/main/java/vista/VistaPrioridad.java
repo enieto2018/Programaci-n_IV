@@ -1,27 +1,24 @@
 package vista;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.ScrollPane;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import controlador.AdministrarPrioridad;
 import modelo.Prioridad;
-
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.util.List;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
-import java.awt.ScrollPane;
-
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.ListSelectionModel;
 
 public class VistaPrioridad extends JFrame {
 
@@ -77,12 +74,6 @@ public class VistaPrioridad extends JFrame {
 				limpiar();
 			}
 		});
-		btnAgregar.setBounds(95, 149, 89, 23);
-		contentPane.add(btnAgregar);
-		
-		JButton btnConsultar = new JButton("Consultar");
-		btnConsultar.setBounds(222, 149, 89, 23);
-		contentPane.add(btnConsultar);
 		
 		JLabel lblPrioridad = new JLabel("PRIORIDAD");
 		lblPrioridad.setFont(new Font("Tahoma", Font.PLAIN, 17));
@@ -105,21 +96,20 @@ public class VistaPrioridad extends JFrame {
 				}
 			}
 		});
-		btnActualizar.setBounds(92, 203, 89, 23);
-		contentPane.add(btnActualizar);
+		
 		
 		JButton btnEliminar = new JButton("Eliminar");
-		btnEliminar.setBounds(222, 203, 89, 23);
-		contentPane.add(btnEliminar);
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(table.getSelectedRow() > -1) {
+					Integer idPrioridad = Integer.valueOf(table.getValueAt(table.getSelectedRow(), 0).toString());
+					adminPrioridad.eliminarPrioridad(idPrioridad);
+					limpiar();
+				}
+			}
+		});
 		
-		ScrollPane scroll = new ScrollPane();
-		table = new JTable();
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setBounds(99, 295, 330, 170);
-		scroll.setBounds(99, 295, 330, 170);
-		scroll.add(table);
-		scroll.setVisible(true);
-		contentPane.add(scroll);
+		
 		
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.addActionListener(new ActionListener() {
@@ -127,14 +117,12 @@ public class VistaPrioridad extends JFrame {
 				if(table.getSelectedRow() > -1) {
 					textNombrePrio.setText(table.getValueAt(table.getSelectedRow(), 1).toString());
 					idEditar = Integer.valueOf(table.getValueAt(table.getSelectedRow(), 0).toString());
-					System.out.println(idEditar);
 				}
 			}
 		});
-		btnEditar.setBounds(350, 149, 89, 23);
-		contentPane.add(btnEditar);
 		
 		
+		JButton btnConsultar = new JButton("Consultar");
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				DefaultTableModel model = new DefaultTableModel();
@@ -149,8 +137,33 @@ public class VistaPrioridad extends JFrame {
 				table.setModel(model);
 				table.setVisible(true);
 			}
-		});
+		});	
 		
+		
+		ScrollPane scroll = new ScrollPane();
+		table = new JTable();
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setBounds(99, 295, 330, 170);
+		scroll.setBounds(99, 295, 330, 170);
+		scroll.add(table);
+		scroll.setVisible(true);
+		contentPane.add(scroll);
+		
+		btnEliminar.setBounds(222, 203, 89, 23);
+		contentPane.add(btnEliminar);
+		
+		btnEditar.setBounds(350, 149, 89, 23);
+		contentPane.add(btnEditar);
+		
+		btnActualizar.setBounds(92, 203, 89, 23);
+		contentPane.add(btnActualizar);
+		
+		btnAgregar.setBounds(95, 149, 89, 23);
+		contentPane.add(btnAgregar);
+		
+		
+		btnConsultar.setBounds(222, 149, 89, 23);
+		contentPane.add(btnConsultar);
 		
 		
 	}

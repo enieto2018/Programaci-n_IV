@@ -8,6 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import modelo.Asesor;
+import modelo.Prioridad;
 import modelo.Servicios;
 
 public class AdministrarAsesor{
@@ -78,6 +79,25 @@ public class AdministrarAsesor{
 		List<Asesor> listaAsesores = (List<Asesor>) manager.createQuery("FROM Asesor").getResultList();
 		cerrarEntityManager();
 		return listaAsesores;
+	}
+	
+	
+	public void actualizarAsesor(Asesor asesor) {
+		abrirEntityManager();
+		manager.getTransaction().begin();
+		manager.merge(asesor);
+		manager.getTransaction().commit();
+		cerrarEntityManager();
+	}
+	
+	
+	public void eliminarAsesor(String identificador) {
+		abrirEntityManager();
+		manager.getTransaction().begin();
+		Asesor asesor = manager.find(Asesor.class, identificador);
+		manager.remove(asesor);
+		manager.getTransaction().commit();
+		cerrarEntityManager();
 	}
 }
 

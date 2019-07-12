@@ -82,7 +82,17 @@ public class AdministrarPrioridad {
 		abrirEntityManager();
 		manager.getTransaction().begin();
 		manager.merge(prioridad);
-		manager.getTransaction().commit();;
+		manager.getTransaction().commit();
+		cerrarEntityManager();
+	}
+	
+	
+	public void eliminarPrioridad(Integer idPrioridad) {
+		abrirEntityManager();
+		manager.getTransaction().begin();
+		Prioridad prioridad = manager.find(Prioridad.class, idPrioridad);
+		manager.remove(prioridad);
+		manager.getTransaction().commit();
 		cerrarEntityManager();
 	}
 }
