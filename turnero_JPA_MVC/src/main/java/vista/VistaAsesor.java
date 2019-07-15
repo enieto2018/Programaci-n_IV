@@ -33,7 +33,7 @@ public class VistaAsesor extends JFrame {
 	private String identificacion;
 	private boolean estado;
 	private JTable table;
-	private Integer idEditar;
+	private String idEditar;
 	private List<Asesor> listaAsesor;
 
 	/**
@@ -57,7 +57,7 @@ public class VistaAsesor extends JFrame {
 	 */
 	public VistaAsesor() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 504, 544);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -91,7 +91,6 @@ public class VistaAsesor extends JFrame {
 				identificacion=txtIdentificacion.getText();
 				nombre=txtNombre.getText();
 				estado = chbEstado.isSelected();
-				
 				adminAsesor.agregarAsesor(nombre, identificacion, estado);
 			}
 			
@@ -114,7 +113,7 @@ public class VistaAsesor extends JFrame {
 				table.setVisible(true);
 			}
 		});
-		btnListar.setBounds(306, 202, 97, 25);
+		btnListar.setBounds(332, 202, 97, 25);
 		contentPane.add(btnListar);
 		
 		JLabel lblAsesor = new JLabel("ASESOR");
@@ -146,21 +145,21 @@ public class VistaAsesor extends JFrame {
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(table.getSelectedRow() > -1) {
-					Integer idPrioridad = Integer.valueOf(table.getValueAt(table.getSelectedRow(), 0).toString());
-					adminPrioridad.eliminarPrioridad(idPrioridad);
+					String cc = table.getValueAt(table.getSelectedRow(), 0).toString();
+					adminAsesor.eliminarAsesor(cc);
 					limpiar();
 				}
 			}
 		});
 		
-		
-		
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(table.getSelectedRow() > -1) {
-					textNombrePrio.setText(table.getValueAt(table.getSelectedRow(), 1).toString());
-					idEditar = Integer.valueOf(table.getValueAt(table.getSelectedRow(), 0).toString());
+					txtIdentificacion.setText(table.getValueAt(table.getSelectedRow(), 0).toString());
+					txtNombre.setText(table.getValueAt(table.getSelectedRow(), 1).toString());
+					idEditar = table.getValueAt(table.getSelectedRow(), 0).toString();
+					
 				}
 			}
 		});
@@ -176,16 +175,16 @@ public class VistaAsesor extends JFrame {
 		contentPane.add(scroll);
 		
 		
-		btnEliminar.setBounds(222, 203, 89, 23);
+		btnEliminar.setBounds(235, 203, 89, 23);
 		contentPane.add(btnEliminar);
 		
-		btnEditar.setBounds(350, 149, 89, 23);
+		btnEditar.setBounds(279, 168, 89, 23);
 		contentPane.add(btnEditar);
 		
-		btnActualizar.setBounds(92, 203, 89, 23);
+		btnActualizar.setBounds(10, 203, 89, 23);
 		contentPane.add(btnActualizar);
 		
-		btnGuardar.setBounds(179, 202, 97, 25);
+		btnGuardar.setBounds(123, 202, 97, 25);
 		contentPane.add(btnGuardar);
 		
 		

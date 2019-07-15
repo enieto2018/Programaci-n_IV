@@ -88,5 +88,23 @@ public class AdministrarServicios{
 		return null;
 		
 	}
+	
+	public void actualizarServicio(Servicios servicio) {
+		abrirEntityManager();
+		manager.getTransaction().begin();
+		manager.merge(servicio);
+		manager.getTransaction().commit();
+		cerrarEntityManager();
+	}
+	
+	
+	public void eliminarServicio(Integer idServicio) {
+		abrirEntityManager();
+		manager.getTransaction().begin();
+		Servicios servicios = manager.find(Servicios.class, idServicio);
+		manager.remove(servicios);
+		manager.getTransaction().commit();
+		cerrarEntityManager();
+	}
 
 }

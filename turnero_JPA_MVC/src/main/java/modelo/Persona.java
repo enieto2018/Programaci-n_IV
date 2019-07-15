@@ -16,7 +16,6 @@ public class Persona implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "IDENTIFICACION")
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected  String identificacion;
 	
 	@Column(name = "NOMBRE")

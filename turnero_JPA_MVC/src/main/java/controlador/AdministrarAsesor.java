@@ -8,7 +8,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import modelo.Asesor;
-import modelo.Prioridad;
 import modelo.Servicios;
 
 public class AdministrarAsesor{
@@ -26,9 +25,7 @@ public class AdministrarAsesor{
 	}
 	
 	public void agregarAsesor(String nombre, String identificacion,boolean estado) {
-		Asesor newAsesor= new Asesor(identificacion, nombre, estado);
-		asesores.add(newAsesor);
-		
+		Asesor newAsesor= new Asesor(identificacion, nombre, estado);		
 		abrirEntityManager();
 		
 		manager.getTransaction().begin();
