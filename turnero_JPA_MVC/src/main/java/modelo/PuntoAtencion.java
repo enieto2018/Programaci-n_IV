@@ -22,9 +22,9 @@ public class PuntoAtencion implements Serializable{
 	@Id
 	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	int id;
+	Integer id;
 	
-	@OneToOne(cascade = {CascadeType.ALL})
+	@OneToOne(cascade = {CascadeType.REFRESH})
 	@JoinColumn(name = "IDENTIFICACION")
 	Asesor asesor;
 	
@@ -46,10 +46,10 @@ public class PuntoAtencion implements Serializable{
 	public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNombre() {

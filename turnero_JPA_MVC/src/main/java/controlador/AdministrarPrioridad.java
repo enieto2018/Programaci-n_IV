@@ -55,12 +55,6 @@ public class AdministrarPrioridad {
 	public List<Prioridad> listarPrioridades() {
 		abrirEntityManager();
 		List<Prioridad> listaPrioridad = (List<Prioridad>) manager.createQuery("FROM Prioridad").getResultList();
-		
-//		for (Prioridad pri : prioridad) {
-//			System.out.print(pri.getNombre()+"\n");
-//		}
-//		System.out.println("Total Prioridades: " + prioridad.size());
-//		
 		cerrarEntityManager();
 		
 		return listaPrioridad;

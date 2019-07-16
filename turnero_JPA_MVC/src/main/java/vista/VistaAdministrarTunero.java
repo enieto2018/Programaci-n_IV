@@ -64,8 +64,8 @@ public class VistaAdministrarTunero extends JFrame {
 		JButton btnCrearPuntoDe = new JButton("Crear punto de atención");
 		btnCrearPuntoDe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PuntoAtencion vent=new PuntoAtencion();
-				vent.setVisible(true);
+//				PuntoAtencion vent=new PuntoAtencion();
+//				vent.setVisible(true);
 			}
 		});
 		btnCrearPuntoDe.setBounds(53, 201, 154, 23);
